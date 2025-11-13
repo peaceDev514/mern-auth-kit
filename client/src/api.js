@@ -1,5 +1,5 @@
-const API_BASE = "http://localhost:5000/api"; // change if your backend URL is different
-
+const API = import.meta.env.VITE_API_URL;
+const API_BASE = `${API}/api`;
 export async function apiRequest(endpoint, method = "GET", data) {
   const options = {
     method,

@@ -3,6 +3,9 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+
+  const API = import.meta.env.VITE_API_URL;
+
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -12,7 +15,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
+      const res = await fetch(`${VITE_API_URL}/api/auth/register`, {
 	      method: "POST",
 	      headers: {
 		      "Content-type": "application/json"
