@@ -20,10 +20,10 @@ export default function Login() {
 	      body: JSON.stringify({ email, password })
       });
       const data = await res.json();
-      localStorage.setItem("token", data.token);
       if(!res.ok){
 	      throw new Error(data.message);
       }
+      localStorage.setItem("token", data.token);
       toast.success("Welcome back!");
       navigate("/dashboard");
     } catch (err) {
